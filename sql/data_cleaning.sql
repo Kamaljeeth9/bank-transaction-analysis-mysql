@@ -84,6 +84,11 @@ select distinct Location from bank_transaction_data_2_cleaning;
 
 select distinct `Channel` from bank_transaction_data_2_cleaning;
 
+-- ====================================================================
+-- CREATING A TABLE AND INSERTING ALL RECORDS INTO NEW TABLE FROM
+--2ND TABLE WHERE WE PERFORMED ALL DATA CLEANING OPERATIONS AND
+-- THEN DROP THE 2ND TABLE
+-- ===================================================================
 create table bank_transaction_clean
 like bank_transaction_data_2_cleaning;
 
