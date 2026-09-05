@@ -1,3 +1,14 @@
+-- =====================================================
+-- BANK TRANSACTION ANALYSIS
+-- EXPLORATORY DATA ANALYSIS
+-- MySQL
+-- =====================================================
+
+
+-- =====================================================
+-- OVERALL TRANSACTION ANALYSIS
+-- =====================================================
+
 
 ## Exploratory Data Analysis [EDA]
 # total transactions
@@ -14,6 +25,12 @@ select max(TransactionAmount) as max_transaction_amount from bank_transaction_cl
 
 # lowest transaction amount
 select min(TransactionAmount) as min_transaction_amount from bank_transaction_clean;
+
+
+-- =====================================================
+-- CUSTOMER / OCCUPATION ANALYSIS
+-- =====================================================
+
 
 # customer behaviour (total transaction value from each city)
 select Location, round(sum(TransactionAmount), 2) as total_value
@@ -84,6 +101,12 @@ from bank_transaction_clean
 group by  AccountID
 order by total_transaction_value desc;
 
+
+-- =====================================================
+-- CHANNEL ANALYSIS
+-- =====================================================
+
+
 ## Channel analysis
 # total transactional amount each channel has generated
 select `Channel`, round(sum(TransactionAmount),2)as total_transactional_amount_generated
@@ -101,6 +124,12 @@ select `Channel`, round(avg(TransactionAmount),2) as average_transaction_amount_
 from bank_transaction_clean
 group by `Channel`;
 
+
+-- =====================================================
+-- LOCATION ANALYSIS
+-- =====================================================
+
+
 ## location analysis
 # which location ppl has generated highest transaction amount
 select Location, round(sum(TransactionAmount),2) as highest_transaction_amount
@@ -113,6 +142,12 @@ select Location, count(TransactionID) as most_transactions_generated
 from bank_transaction_clean
 group by Location
 order by most_transactions_generated desc;
+
+
+-- =====================================================
+-- TRANSACTION BEHAVIOUR
+-- =====================================================
+
 
 ##Transaction behaviour
 
@@ -140,6 +175,12 @@ select TransactionType, round(avg(TransactionDuration),2) as avg_transaction_dur
 from bank_transaction_clean
 group by TransactionType
 order by avg_transaction_duration desc;
+
+
+-- =====================================================
+-- RISK / UNUSUAL BEHAVIOUR
+-- =====================================================
+
 
 ##Risk / unusual behaviour
 #High-value transactions
